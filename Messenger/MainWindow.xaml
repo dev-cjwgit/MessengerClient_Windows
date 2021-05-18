@@ -11,7 +11,7 @@
         Loaded="Window_Loaded" Closing="Window_Closing"
         Activated="Window_Activated"
         mc:Ignorable="d"
-        MinWidth="400"
+        MinWidth="400" MinHeight="500"
         Title="메신져 메인" Height="600" Width="400">
 
     <Border CornerRadius="2.5" Background="White" BorderBrush="White" BorderThickness="1.0">

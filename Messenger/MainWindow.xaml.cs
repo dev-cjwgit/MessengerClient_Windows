@@ -18,9 +18,14 @@ namespace Messenger
         private NotifyIcon notify;
         private void initProgram()
         {
+
+            FriendWindowEntity.GetInstance().NickName = "CJW";
+            FriendWindowEntity.GetInstance().Introduce = "내가 궁극의 마법이다아아~ 아아아~아아앙~~~";
             MainWindowEntity.GetInstance().Friend = new FriendMainWindow();
             MainWindowEntity.GetInstance().Chatting = new ChattingMainWindow();
             MainWindowEntity.GetInstance().More = new MoreMainWindow();
+
+
         }
         private void initBinding()
         {

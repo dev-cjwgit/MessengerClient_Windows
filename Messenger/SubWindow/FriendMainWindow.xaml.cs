@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Messenger.Binding.ObjectViewModel;
+using ProgramCore.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,21 @@ namespace Messenger.SubWindow
         public FriendMainWindow()
         {
             InitializeComponent();
+            ProfileNickNameText.DataContext = MyProfileViewModel.GetInstance();
+            ProfileIntroduceText.DataContext = MyProfileViewModel.GetInstance();
+
+            MyProfileViewModel.GetInstance().NickName = FriendWindowEntity.GetInstance().NickName;
+            MyProfileViewModel.GetInstance().Introduce = FriendWindowEntity.GetInstance().Introduce;
+        }
+
+        private void AddFriendButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

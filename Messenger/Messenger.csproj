@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Binding\ObjectViewModel\MyProfileViewModel.cs" />
     <Compile Include="SubWindow\ChattingMainWindow.xaml.cs">
       <DependentUpon>ChattingMainWindow.xaml</DependentUpon>
     </Compile>

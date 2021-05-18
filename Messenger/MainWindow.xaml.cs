@@ -5,6 +5,7 @@ using System;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace Messenger
@@ -14,6 +15,7 @@ namespace Messenger
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BrushConverter converter = new BrushConverter();
         private WindowState PrevWindowState = WindowState.Normal;
         private NotifyIcon notify;
         private void initProgram()
@@ -37,6 +39,7 @@ namespace Messenger
             initProgram();
             initBinding();
             ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Friend;
+            FriendButton.Foreground = (Brush)converter.ConvertFromString("#404040");
         }
 
 
@@ -142,16 +145,26 @@ namespace Messenger
         private void FriendButton_Click(object sender, RoutedEventArgs e)
         {
             ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Friend;
+            FriendButton.Foreground = (Brush)converter.ConvertFromString("#404040");
+            ChattingButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
+            MoreButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
+            //a2a2a2
         }
 
         private void ChattingButton_Click(object sender, RoutedEventArgs e)
         {
             ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Chatting;
+            FriendButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
+            ChattingButton.Foreground = (Brush)converter.ConvertFromString("#404040");
+            MoreButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
         }
 
         private void MoreButton_Click(object sender, RoutedEventArgs e)
         {
             ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().More;
+            FriendButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
+            ChattingButton.Foreground = (Brush)converter.ConvertFromString("#a2a2a2");
+            MoreButton.Foreground = (Brush)converter.ConvertFromString("#404040");
         }
     }
 }

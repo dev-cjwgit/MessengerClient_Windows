@@ -11,11 +11,11 @@
         <Style x:Key="NormalButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#a2a2a2"/>
+            <Setter Property="Foreground" Value="#616161"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="object" BorderBrush="Transparent" BorderThickness="2"
+                        <Border x:Name="object" CornerRadius="50" BorderBrush="Transparent" BorderThickness="2"
                                 Background="{TemplateBinding Background}">
                             <ContentPresenter Content="{TemplateBinding Content}"/>
                         </Border>
@@ -24,12 +24,11 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#808080"/>
                     <Setter Property="Background" Value="#F0F0F0"/>
                 </Trigger>
 
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Foreground" Value="#a2a2a2"/>
+                    <Setter Property="Background" Value="Transparent"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -38,6 +37,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -46,20 +46,20 @@
                 <TextBlock Text="친구" FontWeight="UltraBold"/>
             </Viewbox>
             <Button x:Name="AddFriendButton" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Height="35" Width="35" Margin="0,0,10,0"
+                    Height="40" Width="40" Margin="0,0,10,0"
                     Click="AddFriendButton_Click"
-                    Style="{StaticResource BasedMainButtonStyle}" ToolTip="친구추가">
+                    Style="{StaticResource NormalButtonStyle}" ToolTip="친구추가">
                 <Viewbox>
-                    <materialDesign:PackIcon Kind="NormalButtonStyle" />
+                    <materialDesign:PackIcon Kind="AccountPlusOutline" Height="40" Width="30"/>
                 </Viewbox>
             </Button>
 
             <Button x:Name="SearchButton" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Height="35" Width="35" Margin="0,0,60,0"
+                    Height="40" Width="40" Margin="0,0,60,0"
                     Click="SearchButton_Click"
                     Style="{StaticResource NormalButtonStyle}" ToolTip="검색">
                 <Viewbox>
-                    <materialDesign:PackIcon Kind="Magnify" />
+                    <materialDesign:PackIcon Kind="Magnify" Height="40" Width="30" />
                 </Viewbox>
             </Button>
         </Grid>
@@ -82,13 +82,28 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0"> <!-- 닉네임 -->
-                    <TextBlock x:Name="ProfileNickNameText" Text="{Binding NickName}" Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
+                    <TextBlock x:Name="ProfileNickNameText" Text="{Binding NickName}" Margin="10,0,10,2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="UltraBlack" FontSize="15"/>
                 </Grid>
 
                 <Grid Grid.Row="1"> <!-- 소개글 -->
-                    <TextBlock x:Name="ProfileIntroduceText" Text="{Binding Introduce}" Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" TextTrimming="WordEllipsis"/>
+                    <TextBlock x:Name="ProfileIntroduceText" Text="{Binding Introduce}" Margin="10,0,10,2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="#757575" TextTrimming="WordEllipsis"/>
                 </Grid>
             </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Line x:Name="line1" X1="20" Y1="5"
+                  X2="{Binding ElementName=line1, Path=ActualWidth}" Y2="5"
+                  StrokeThickness="0.5"
+                  Canvas.Left="100">
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="#b5b5b5" Offset="0.25" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
         </Grid>
     </Grid>
 </UserControl>

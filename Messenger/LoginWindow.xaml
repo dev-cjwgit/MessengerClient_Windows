@@ -1,4 +1,4 @@
-﻿<Window x:Class="Messenger.LoginFrm"
+﻿<Window x:Class="Messenger.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,8 +7,9 @@
         xmlns:local="clr-namespace:Messenger"
         WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowInTaskbar="False"
+        Loaded="Window_Loaded" Closing="Window_Closing"
         mc:Ignorable="d"
-        Title="MainWindow" Height="590" Width="360">
+        Title="메신져 로그인" Height="590" Width="360">
     <Window.Resources>
         <Style x:Key="LoginButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
@@ -120,9 +121,11 @@
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                  VerticalAlignment="Center" Height="40" Margin="0,0,0,0"/>
                     <Button x:Name="LoginButton"  Style="{StaticResource LoginButtonStyle}"
+                            Click="LoginButton_Click"
                         Margin="0,80,0,0" Height="40"
                         ToolTip="메신저 로그인">
                         <TextBlock x:Name="ButtonText" FontWeight="UltraBlack" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  Text="로그인"/> 
+                        
                     </Button>
                     <CheckBox IsChecked="False" Margin="0,150,0,0" Style="{StaticResource CheckBoxStyle}">
                         자동로그인

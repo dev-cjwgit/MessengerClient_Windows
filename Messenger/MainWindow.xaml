@@ -21,7 +21,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Background="#ededed">
-                
+                <ContentControl>
+                    <Rectangle Name="titlebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                </ContentControl>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -30,7 +33,7 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
-                        <Rectangle Name="titlebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                        <Rectangle Name="sidebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
                                            MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
                     </ContentControl>
                     

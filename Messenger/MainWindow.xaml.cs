@@ -18,6 +18,8 @@ namespace Messenger
             InitializeComponent();
         }
 
+
+        #region Window Events
         private void WindowsCloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -57,36 +59,6 @@ namespace Messenger
             DragMove();
         }
 
-        private void WindowsMaximizeButton_Click(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        #region Tray Mode
-
-        private void TrayInit()
-        {
-            ContextMenu menu = new ContextMenu();
-            MenuItem item1 = new MenuItem();
-            menu.MenuItems.Add(item1);
-
-            item1.Index = 0;
-            item1.Text = "Close App";
-            item1.Click += (s, _) =>
-            {
-                notify.Dispose();
-                Environment.Exit(0);
-            };
-
-            notify = new NotifyIcon();
-            notify.DoubleClick += new EventHandler(Window_Activated);
-            notify.Icon = Properties.Resources.icons8_facebook_messenger_512;
-            notify.Visible = true;
-            notify.ContextMenu = menu;
-        }
-
-        #endregion
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var anim = new DoubleAnimation(0, 1, (Duration)TimeSpan.FromSeconds(1));
@@ -120,5 +92,31 @@ namespace Messenger
                 Opacity = 1.0;
             }
         }
+        #endregion
+
+        #region Tray Mode
+        private void TrayInit()
+        {
+            ContextMenu menu = new ContextMenu();
+            MenuItem item1 = new MenuItem();
+            menu.MenuItems.Add(item1);
+
+            item1.Index = 0;
+            item1.Text = "프로그램 종료";
+            item1.Click += (s, _) =>
+            {
+                notify.Dispose();
+                Environment.Exit(0);
+            };
+
+            notify = new NotifyIcon();
+            notify.DoubleClick += new EventHandler(Window_Activated);
+            notify.Icon = Properties.Resources.icons8_facebook_messenger_512;
+            notify.Visible = true;
+            notify.ContextMenu = menu;
+        }
+
+        #endregion
+
     }
 }

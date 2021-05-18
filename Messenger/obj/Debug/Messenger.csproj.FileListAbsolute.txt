@@ -1,4 +1,3 @@
-C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\Messenger.csprojAssemblyReference.cache
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\Messenger.exe.config
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\Messenger.exe
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\Messenger.pdb

@@ -30,3 +30,4 @@ C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWi
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\MoreMainWindow.g.cs
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\ChattingMainWindow.baml
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\MoreMainWindow.baml
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\GeneratedInternalTypeHelper.g.cs

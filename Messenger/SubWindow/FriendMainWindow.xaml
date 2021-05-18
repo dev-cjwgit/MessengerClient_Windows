@@ -8,6 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
     <UserControl.Resources>
+        <local:LineConverter x:Key="LineConverter"/>
+
         <Style x:Key="NormalButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -93,7 +95,7 @@
 
         <Grid Grid.Row="2">
             <Line x:Name="line1" X1="20" Y1="5"
-                  X2="{Binding ElementName=line1, Path=ActualWidth}" Y2="5"
+                  X2="{Binding ElementName=line1, Path=ActualWidth, Converter={StaticResource LineConverter} }" Y2="5"
                   StrokeThickness="0.5"
                   Canvas.Left="100">
                 <Line.Stroke>

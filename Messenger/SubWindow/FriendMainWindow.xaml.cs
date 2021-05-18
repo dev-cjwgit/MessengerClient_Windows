@@ -2,6 +2,7 @@
 using ProgramCore.Entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Messenger.SubWindow
     /// </summary>
     public partial class FriendMainWindow : UserControl
     {
+
         public FriendMainWindow()
         {
             InitializeComponent();
@@ -40,6 +42,18 @@ namespace Messenger.SubWindow
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+    }
+    public class LineConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ((double)value) - 20;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException("Cannot convert back");
         }
     }
 }

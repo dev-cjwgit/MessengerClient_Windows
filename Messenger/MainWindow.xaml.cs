@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Messenger.Binding.ObjectViewModel;
+using Messenger.SubWindow;
+using ProgramCore.Entity;
+using System;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -13,9 +16,22 @@ namespace Messenger
     {
         private WindowState PrevWindowState = WindowState.Normal;
         private NotifyIcon notify;
+        private void initProgram()
+        {
+            MainWindowEntity.GetInstance().Friend = new FriendMainWindow();
+            MainWindowEntity.GetInstance().Chatting = new ChattingMainWindow();
+            MainWindowEntity.GetInstance().More = new MoreMainWindow();
+        }
+        private void initBinding()
+        {
+            ContentPage.DataContext = ContentPageViewModel.GetInstance(); // COntentPageBinding
+        }
         public MainWindow()
         {
             InitializeComponent();
+            initProgram();
+            initBinding();
+            ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Friend;
         }
 
 
@@ -118,5 +134,19 @@ namespace Messenger
 
         #endregion
 
+        private void FriendButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Friend;
+        }
+
+        private void ChattingButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Chatting;
+        }
+
+        private void MoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().More;
+        }
     }
 }

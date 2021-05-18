@@ -21,3 +21,12 @@ C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\Login
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\LoginWindow.baml
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\MainWindow.g.cs
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\MainWindow.baml
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\Messenger.csprojAssemblyReference.cache
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\FriendMainWindow.g.cs
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\FriendMainWindow.baml
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\ProgramCore.dll
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\ProgramCore.pdb
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\ChattingMainWindow.g.cs
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\MoreMainWindow.g.cs
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\ChattingMainWindow.baml
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\obj\Debug\SubWindow\MoreMainWindow.baml

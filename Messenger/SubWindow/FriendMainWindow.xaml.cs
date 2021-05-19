@@ -41,17 +41,17 @@ namespace Messenger.SubWindow
             List<Family> families = new List<Family>();
 
             Family family1 = new Family() { Title = "즐겨찾기" };
-            family1.List.Add(new FamilyMember() { NickName = "김진혁", Introduce = "반갑습니다" });
+            family1.List.Add(new FriendMember() { NickName = "김진혁", Introduce = "반갑습니다" });
             families.Add(family1);
 
             Family family2 = new Family() { Title = "생일" };
-            family2.List.Add(new FamilyMember() { NickName = "정윤모", Introduce = "생일이당~" });
+            family2.List.Add(new FriendMember() { NickName = "정윤모", Introduce = "생일이당~" });
             families.Add(family2);
 
             Family family3 = new Family() { Title = "친구" };
-            family3.List.Add(new FamilyMember() { NickName = "김진혁", Introduce = "반갑습니다" });
-            family3.List.Add(new FamilyMember() { NickName = "정윤모", Introduce = "생일이당~" });
-            family3.List.Add(new FamilyMember() { NickName = "홍길동", Introduce = "나는 의적!" });
+            family3.List.Add(new FriendMember() { NickName = "김진혁", Introduce = "반갑습니다" });
+            family3.List.Add(new FriendMember() { NickName = "정윤모", Introduce = "생일이당~" });
+            family3.List.Add(new FriendMember() { NickName = "홍길동", Introduce = "나는 의적!" });
             families.Add(family3);
             FriendTreeView.ItemsSource = families;
 
@@ -65,6 +65,13 @@ namespace Messenger.SubWindow
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void FriendTreeView_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            dynamic meta_data = sender as dynamic;
+
+            Console.WriteLine();
         }
     }
     public class LineConverter : IValueConverter

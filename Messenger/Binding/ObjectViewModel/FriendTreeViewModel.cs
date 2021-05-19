@@ -14,15 +14,15 @@ namespace Messenger.Binding.ObjectViewModel
 	{
 		public Family()
 		{
-			this.List = new ObservableCollection<FamilyMember> ();
+			this.List = new ObservableCollection<FriendMember> ();
 		}
 
 		public string Title { get; set; }
 
-		public ObservableCollection<FamilyMember> List { get; set; }
+		public ObservableCollection<FriendMember> List { get; set; }
 	}
 
-	public class FamilyMember
+	public class FriendMember
 	{
 		public string NickName { get; set; }
 

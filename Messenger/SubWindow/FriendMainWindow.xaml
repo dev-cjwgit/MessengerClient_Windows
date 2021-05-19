@@ -115,13 +115,14 @@
 
         <Grid Grid.Row="3">
             <TreeView Name="FriendTreeView">
+
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type model:Family}" ItemsSource="{Binding List}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Title}" />
                         </StackPanel>
                     </HierarchicalDataTemplate>
-                    <DataTemplate DataType="{x:Type model:FamilyMember}">
+                    <DataTemplate DataType="{x:Type model:FriendMember}">
                         <Grid>
                             <!-- 프로필 UI -->
                             <Grid.ColumnDefinitions>

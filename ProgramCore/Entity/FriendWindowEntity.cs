@@ -13,28 +13,15 @@ namespace ProgramCore.Entity
 
         public string NickName
         {
-            get
-            {
-                return _nickname;
-            }
-            set
-            {
-                _nickname = value;
-            }
+            get;set;
         }
         public string Introduce
         {
-            get
-            {
-                return _introduce;
-            }
-            set
-            {
-                _introduce = value;
-            }
+            get;set;
         }
 
         private static FriendWindowEntity instance;
+
         public static FriendWindowEntity GetInstance()
         {
             if (instance == null)

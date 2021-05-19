@@ -4,12 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Messenger.SubWindow"
+             xmlns:model="clr-namespace:Messenger.Binding.ObjectViewModel"
+             xmlns:entity="clr-namespace:ProgramCore.ObjectModel"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
     <UserControl.Resources>
         <local:LineConverter x:Key="LineConverter"/>
-
+    
         <Style x:Key="NormalButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -73,7 +75,8 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1"> <!-- 프로필 사진 -->
+            <Grid Grid.Column="1">
+                <!-- 프로필 사진 -->
                 <Viewbox Margin="5">
                     <materialDesign:PackIcon Kind="AccountQuestion" />
                 </Viewbox>
@@ -83,12 +86,14 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"> <!-- 닉네임 -->
+                <Grid Grid.Row="0">
+                    <!-- 닉네임 -->
                     <TextBlock x:Name="ProfileNickNameText" Text="{Binding NickName}" Margin="10,0,10,2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="UltraBlack" FontSize="15"/>
                 </Grid>
 
-                <Grid Grid.Row="1"> <!-- 소개글 -->
-                    <TextBlock x:Name="ProfileIntroduceText" Text="{Binding Introduce}" Margin="10,0,10,2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="#757575" TextTrimming="WordEllipsis"/>
+                <Grid Grid.Row="1">
+                    <!-- 소개글 -->
+                    <TextBlock x:Name="ProfileIntroduceText" Text="{Binding Introduce}" Margin="10,0,10,2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" Foreground="#757575" TextTrimming="WordEllipsis"/>
                 </Grid>
             </Grid>
         </Grid>
@@ -106,6 +111,49 @@
                     </RadialGradientBrush>
                 </Line.Stroke>
             </Line>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <TreeView Name="FriendTreeView">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type model:Family}" ItemsSource="{Binding List}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Title}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type model:FamilyMember}">
+                        <Grid>
+                            <!-- 프로필 UI -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <!-- 프로필 사진 -->
+                                <Viewbox Margin="5">
+                                    <materialDesign:PackIcon Kind="AccountQuestion" />
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <!-- 닉네임 -->
+                                    <TextBlock x:Name="ProfileNickNameText" Text="{Binding NickName}" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="UltraBlack" FontSize="15"/>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <!-- 소개글 -->
+                                    <TextBlock x:Name="ProfileIntroduceText" Text="{Binding Introduce}"  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" Foreground="#757575" TextTrimming="WordEllipsis"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+
         </Grid>
     </Grid>
 </UserControl>

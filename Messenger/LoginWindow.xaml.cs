@@ -46,7 +46,7 @@ namespace Messenger
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var anim = new DoubleAnimation(0, 1, (Duration)TimeSpan.FromSeconds(1));
+            var anim = new DoubleAnimation(0, 1, (Duration)TimeSpan.FromSeconds(0.5));
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }
 
@@ -54,7 +54,7 @@ namespace Messenger
         {
             Closing -= Window_Closing;
             e.Cancel = true;
-            var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(1));
+            var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
             anim.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }

@@ -45,10 +45,9 @@
   <ItemGroup>
     <Compile Include="Entity\FriendWindowEntity.cs" />
     <Compile Include="Entity\MainWindowEntity.cs" />
+    <Compile Include="ObjectModel\ProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ObjectModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

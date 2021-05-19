@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using ProgramCore.Entity;
-using ProgramCore.ObjectModel;
+using ProgramCore.ObjectForm;
+using ProgramCore.ObjectForm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,22 +11,56 @@ using System.Threading.Tasks;
 
 namespace Messenger.Binding.ObjectViewModel
 {
-	public class Family
-	{
-		public Family()
-		{
-			this.List = new ObservableCollection<FriendMember> ();
-		}
+    public class TreeModel
+    {
+        private List<FriendTreeViewForm> list = new List<FriendTreeViewForm>();
 
-		public string Title { get; set; }
+        public void InsertFriend(int idx, ProfileForm people)
+        {
+            list[idx].List.Add(new ProfileForm()
+            {
+                NickName = people.NickName,
+                Introduce = people.Introduce
+            });
+        }
+        public void InsertGroup(string title)
+        {
+            list.Add(new FriendTreeViewForm()
+            {
+                Title = title,
+                List = new List<ProfileForm>()
+            });
+        }
 
-		public ObservableCollection<FriendMember> List { get; set; }
-	}
+        public void Fetch()
+        {
+            FriendTreeViewModel.SetSource(list);
+        }
+    }
 
-	public class FriendMember
-	{
-		public string NickName { get; set; }
+    public class FriendTreeViewModel
+    {
+        private static ObservableCollection<FriendTreeViewForm> instance;
 
-		public string Introduce { get; set; }
-	}
+        public static ObservableCollection<FriendTreeViewForm> GetInstance()
+        {
+            if (instance == null)
+                instance = new ObservableCollection<FriendTreeViewForm>();
+            return instance;
+        }
+
+        public static void SetSource(List<FriendTreeViewForm> src)
+        {
+            instance.Clear();
+            foreach (var i in src)
+            {
+                instance.Add(new FriendTreeViewForm()
+                {
+                    Title = i.Title,
+                    List = i.List
+                });
+            }
+        }
+
+    }
 }

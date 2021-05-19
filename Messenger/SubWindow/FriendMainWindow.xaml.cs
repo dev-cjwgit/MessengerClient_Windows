@@ -1,5 +1,6 @@
 ﻿using Messenger.Binding.ObjectViewModel;
 using ProgramCore.Entity;
+using ProgramCore.ObjectForm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +29,7 @@ namespace Messenger.SubWindow
         {
             ProfileNickNameText.DataContext = MyProfileViewModel.GetInstance();
             ProfileIntroduceText.DataContext = MyProfileViewModel.GetInstance();
+            FriendTreeView.ItemsSource = FriendTreeViewModel.GetInstance();
         }
 
         public FriendMainWindow()
@@ -35,55 +37,50 @@ namespace Messenger.SubWindow
             InitializeComponent();
             InitBinding();
 
-            MyProfileViewModel.GetInstance().NickName = FriendWindowEntity.GetInstance().NickName;
-            MyProfileViewModel.GetInstance().Introduce = FriendWindowEntity.GetInstance().Introduce;
+            TreeModel model = new TreeModel();
+            model.InsertGroup("즐겨찾기");
+            model.InsertGroup("생일");
+            model.InsertGroup("친구");
 
-            List<Family> families = new List<Family>();
-
-            Family family1 = new Family() { Title = "즐겨찾기" };
-            family1.List.Add(new FriendMember() { NickName = "김진혁", Introduce = "반갑습니다" });
-            families.Add(family1);
-
-            Family family2 = new Family() { Title = "생일" };
-            family2.List.Add(new FriendMember() { NickName = "정윤모", Introduce = "생일이당~" });
-            families.Add(family2);
-
-            Family family3 = new Family() { Title = "친구" };
-            family3.List.Add(new FriendMember() { NickName = "김진혁", Introduce = "반갑습니다" });
-            family3.List.Add(new FriendMember() { NickName = "정윤모", Introduce = "생일이당~" });
-            family3.List.Add(new FriendMember() { NickName = "홍길동", Introduce = "나는 의적!" });
-            families.Add(family3);
-            FriendTreeView.ItemsSource = families;
-
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                model.InsertFriend(rand.Next(0, 3), new ProfileForm()
+                {
+                    NickName = "유미" + rand.Next(1, 100),
+                    Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
+                });
+            }
+            model.Fetch();
         }
 
-        private void AddFriendButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void FriendTreeView_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            dynamic meta_data = sender as dynamic;
-
-            Console.WriteLine();
-        }
-    }
-    public class LineConverter : IValueConverter
+    private void AddFriendButton_Click(object sender, RoutedEventArgs e)
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return ((double)value) - 20;
-        }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException("Cannot convert back");
-        }
     }
+
+    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void FriendTreeView_DoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        dynamic meta_data = sender as dynamic;
+
+        Console.WriteLine();
+    }
+}
+public class LineConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        return ((double)value) - 20;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotSupportedException("Cannot convert back");
+    }
+}
 }

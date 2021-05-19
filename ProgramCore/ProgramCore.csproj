@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="Entity\FriendWindowEntity.cs" />
     <Compile Include="Entity\MainWindowEntity.cs" />
-    <Compile Include="ObjectModel\ProfileModel.cs" />
+    <Compile Include="ObjectForm\FriendTreeViewForm.cs" />
+    <Compile Include="ObjectForm\ProfileForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

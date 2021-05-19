@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramCore.ObjectModel
+namespace ProgramCore.ObjectForm
 {
-    public class ProfileModel
+    public class ProfileForm
     {
         public string NickName
         {

@@ -8,9 +8,6 @@ namespace ProgramCore.Entity
 {
     public class FriendWindowEntity
     {
-        private string _nickname;
-        private string _introduce;
-
         public string NickName
         {
             get;set;

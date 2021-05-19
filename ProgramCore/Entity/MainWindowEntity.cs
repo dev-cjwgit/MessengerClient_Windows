@@ -9,46 +9,9 @@ namespace ProgramCore.Entity
 {
     public class MainWindowEntity
     {
-        private UserControl _friend;
-        private UserControl _chatting;
-        private UserControl _more;
-
-        public UserControl Friend
-        {
-            get
-            {
-                return _friend;
-            }
-
-            set
-            {
-                _friend = value;
-            }
-        }
-        public UserControl Chatting
-        {
-            get
-            {
-                return _chatting;
-            }
-
-            set
-            {
-                _chatting = value;
-            }
-        }
-        public UserControl More
-        {
-            get
-            {
-                return _more;
-            }
-
-            set
-            {
-                _more = value;
-            }
-        }
+        public UserControl Friend { get; set; }
+        public UserControl Chatting { get; set; }
+        public UserControl More { get; set; }
 
         private static MainWindowEntity instance;
 

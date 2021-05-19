@@ -13,7 +13,7 @@ namespace Messenger.Binding.ObjectViewModel
 {
     public class TreeModel
     {
-        private List<FriendTreeViewForm> list = new List<FriendTreeViewForm>();
+        private ObservableCollection<FriendTreeViewForm> list = new ObservableCollection<FriendTreeViewForm>();
 
         public void InsertFriend(int idx, ProfileForm people)
         {
@@ -28,7 +28,7 @@ namespace Messenger.Binding.ObjectViewModel
             list.Add(new FriendTreeViewForm()
             {
                 Title = title,
-                List = new List<ProfileForm>()
+                List = new ObservableCollection<ProfileForm>()
             });
         }
 
@@ -49,7 +49,7 @@ namespace Messenger.Binding.ObjectViewModel
             return instance;
         }
 
-        public static void SetSource(List<FriendTreeViewForm> src)
+        public static void SetSource(ObservableCollection<FriendTreeViewForm> src)
         {
             instance.Clear();
             foreach (var i in src)

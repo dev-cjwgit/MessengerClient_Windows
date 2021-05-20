@@ -73,6 +73,16 @@ namespace Messenger.SubWindow
 
             Console.WriteLine();
         }
+
+        private void FriendTreeView_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (((TreeViewItem)sender).DataContext is FriendTreeViewForm) {
+                return;
+            }
+            ((TreeViewItem)sender).IsSelected = true;
+
+            e.Handled = true;
+        }
     }
     public class LineConverter : IValueConverter
     {

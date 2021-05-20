@@ -1,6 +1,7 @@
 ﻿using Messenger.Binding.ObjectViewModel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,46 @@ namespace Messenger.SubWindow
         {
             ChattingListViewModel.GetInstance().Add(new ChattingListViewModel()
             {
-                Title = "채팅방1입니다",
-                Body = "아니 그게 아니라... 이건데"
+                Title = "한기대 알고리즘 2분반 오픈카톡방입니다. 환영해요",
+                Body = "아니 그게 아니라... 이건rㅂㅈㄷㅅㅂㅈㄷㅅㅂㅈㄷㄱㅂㅈㄷㅅㅂㅈㄱㅂㅈㄷㄱㅂㅈㄷㅂㅈㄷㅅ데",
+                Date="2021-04-25"
             });
+        }
+
+        private void ChattingList_EnterChatting(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChattingList_ExitChatting(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+    }
+    public class ValueConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ((double)value) - 40;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException("Cannot convert back");
+        }
+    }
+
+    public class TitleTextConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ((double)value) - 50;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException("Cannot convert back");
         }
     }
 }

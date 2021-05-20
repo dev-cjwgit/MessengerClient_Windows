@@ -15,12 +15,17 @@ namespace Messenger.Binding.ObjectViewModel
             get; set;
         }
 
-        public int people
+        public int People
         {
             get; set;
         }
 
         public string Body
+        {
+            get; set;
+        }
+
+        public string Date
         {
             get; set;
         }

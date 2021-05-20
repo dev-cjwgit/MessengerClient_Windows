@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using ProgramCore.Entity;
 using ProgramCore.ObjectForm;
-using ProgramCore.ObjectForm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

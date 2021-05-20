@@ -30,6 +30,9 @@ namespace Messenger.SubWindow
             ProfileNickNameText.DataContext = MyProfileViewModel.GetInstance();
             ProfileIntroduceText.DataContext = MyProfileViewModel.GetInstance();
             FriendTreeView.ItemsSource = FriendTreeViewModel.GetInstance();
+
+            MyProfileViewModel.GetInstance().NickName = FriendWindowEntity.GetInstance().NickName;
+            MyProfileViewModel.GetInstance().Introduce = FriendWindowEntity.GetInstance().Introduce;
         }
 
         public FriendMainWindow()
@@ -54,33 +57,33 @@ namespace Messenger.SubWindow
             model.Fetch();
         }
 
-    private void AddFriendButton_Click(object sender, RoutedEventArgs e)
-    {
+        private void AddFriendButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FriendTreeView_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            dynamic meta_data = sender as dynamic;
+
+            Console.WriteLine();
+        }
     }
-
-    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    public class LineConverter : IValueConverter
     {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ((double)value) - 35;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException("Cannot convert back");
+        }
     }
-
-    private void FriendTreeView_DoubleClick(object sender, MouseButtonEventArgs e)
-    {
-        dynamic meta_data = sender as dynamic;
-
-        Console.WriteLine();
-    }
-}
-public class LineConverter : IValueConverter
-{
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        return ((double)value) - 20;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotSupportedException("Cannot convert back");
-    }
-}
 }

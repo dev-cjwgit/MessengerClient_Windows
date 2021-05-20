@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Messenger.Binding.ObjectViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Messenger.SubWindow
         public ChattingMainWindow()
         {
             InitializeComponent();
+            ChattingList.ItemsSource = ChattingListViewModel.GetInstance();
+
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -32,7 +35,11 @@ namespace Messenger.SubWindow
 
         private void AddChattingButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ChattingListViewModel.GetInstance().Add(new ChattingListViewModel()
+            {
+                Title = "채팅방1입니다",
+                Body = "아니 그게 아니라... 이건데"
+            });
         }
     }
 }

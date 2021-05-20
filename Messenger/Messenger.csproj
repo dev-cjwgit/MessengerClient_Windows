@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Binding\ObjectViewModel\ChattingListViewModel.cs" />
     <Compile Include="Binding\ObjectViewModel\FriendTreeViewModel.cs" />
     <Compile Include="Binding\ObjectViewModel\MyProfileViewModel.cs" />
     <Compile Include="SubWindow\ChattingMainWindow.xaml.cs">

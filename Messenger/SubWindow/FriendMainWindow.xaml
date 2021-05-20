@@ -102,7 +102,7 @@
 
         <Grid Grid.Row="2">
             <Line x:Name="line1" X1="20" Y1="5"
-                  X2="{Binding ElementName=line1, Path=ActualWidth, Converter={StaticResource LineConverter} }" Y2="5"
+                  X2="{Binding ElementName=line1, Path=ActualWidth, Converter={StaticResource LineConverter}}" Y2="5"
                   StrokeThickness="0.5"
                   Canvas.Left="100">
                 <Line.Stroke>

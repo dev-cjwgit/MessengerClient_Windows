@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Messenger.Socket;
+using PacketComponent;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,7 @@ namespace Messenger
         public LoginWindow()
         {
             InitializeComponent();
+            new ServerService("192.168.48.130", 5000);
         }
 
         private void WindowsTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +41,12 @@ namespace Messenger
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            SendPacket s = new SendPacket();
+            s.writeInt(255);
+            s.writeString(emailTextBox.Text.ToString());
+            s.writeString(PWTextBox.Password.ToString());
+
+            ServerService.send(s.getPacket());
             MainWindow main = new MainWindow();
             this.Hide();
             main.Show();

@@ -109,12 +109,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1">
-                    <TextBox materialDesign:HintAssist.Hint="아이디 또는 이메일을 입력해주세요."
+                    <TextBox x:Name="emailTextBox"
+                            materialDesign:HintAssist.Hint="아이디 또는 이메일을 입력해주세요."
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White"
                              materialDesign:HintAssist.Foreground="#31326f"
                              materialDesign:TextFieldAssist.UnderlineBrush="#31326f"
                              VerticalAlignment="Center" Height="40" Margin="0,-80,0,0"/>
-                    <PasswordBox x:Name="FloatingPasswordBox" 
+                    <PasswordBox x:Name="PWTextBox" 
                                  materialDesign:HintAssist.Hint="비밀번호를 입력해주세요."  Background="White"
                                  materialDesign:HintAssist.Foreground="#31326f" 
                                  materialDesign:TextFieldAssist.UnderlineBrush="#31326f"  

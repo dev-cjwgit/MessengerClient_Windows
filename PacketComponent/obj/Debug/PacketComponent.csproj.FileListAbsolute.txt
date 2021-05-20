@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\SocketTest\PacketComponent\bin\Debug\PacketComponent.dll
+C:\Users\user\source\repos\SocketTest\PacketComponent\bin\Debug\PacketComponent.pdb
+C:\Users\user\source\repos\SocketTest\PacketComponent\obj\Debug\PacketComponent.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\SocketTest\PacketComponent\obj\Debug\PacketComponent.dll
+C:\Users\user\source\repos\SocketTest\PacketComponent\obj\Debug\PacketComponent.pdb
+C:\Users\user\source\repos\SocketTest\PacketComponent\obj\Debug\PacketComponent.csprojAssemblyReference.cache
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\bin\Debug\PacketComponent.dll
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\bin\Debug\PacketComponent.pdb
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\obj\Debug\PacketComponent.csprojAssemblyReference.cache
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\obj\Debug\PacketComponent.csproj.CoreCompileInputs.cache
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\obj\Debug\PacketComponent.dll
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\PacketComponent\obj\Debug\PacketComponent.pdb

@@ -42,3 +42,7 @@ C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\GalaS
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\PacketComponent.dll
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\SocketComponent.dll
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\PacketComponent.pdb
+C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\bin\Debug\SocketComponent.pdb

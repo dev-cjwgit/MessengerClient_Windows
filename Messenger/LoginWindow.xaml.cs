@@ -29,7 +29,7 @@ namespace Messenger
         public LoginWindow()
         {
             InitializeComponent();
-            new ServerService("192.168.48.130", 5000);
+            new ServerService("220.88.163.147", 5000);
             ServerService.sendLoginFrm = RecvData;
         }
 

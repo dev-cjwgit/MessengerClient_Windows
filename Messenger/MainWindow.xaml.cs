@@ -1,5 +1,7 @@
 ﻿using Messenger.Binding.ObjectViewModel;
+using Messenger.Socket;
 using Messenger.SubWindow;
+using PacketComponent;
 using ProgramCore.Entity;
 using System;
 using System.Windows;
@@ -18,11 +20,16 @@ namespace Messenger
         private BrushConverter converter = new BrushConverter();
         private WindowState PrevWindowState = WindowState.Normal;
         private NotifyIcon notify;
+        public void RecvData(int opcode, ReadPacket r)
+        {
+            switch (opcode)
+            {
+
+            }
+        }
         private void initProgram()
         {
-
-            FriendWindowEntity.GetInstance().NickName = "CJW";
-            FriendWindowEntity.GetInstance().Introduce = "내가 궁극의 마법이다아아~ 아아아~아아앙~~~";
+            ServerService.sendMainFrm = RecvData;
             MainWindowEntity.GetInstance().Friend = new FriendMainWindow();
             MainWindowEntity.GetInstance().Chatting = new ChattingMainWindow();
             MainWindowEntity.GetInstance().More = new MoreMainWindow();
@@ -36,6 +43,7 @@ namespace Messenger
         public MainWindow()
         {
             InitializeComponent();
+
             initProgram();
             initBinding();
             ContentPageViewModel.GetInstance().Page = MainWindowEntity.GetInstance().Friend;

@@ -52,10 +52,18 @@ namespace PacketComponent
 
         public double readDouble()
         {
-            byte[] temp = new byte[4];
+            byte[] temp = new byte[8];
             temp = copyByte(this.data, pos, 8);
             pos += 8;
             return BitConverter.ToDouble(temp, 0);
+        }
+
+        public int readShort()
+        {
+            byte[] temp = new byte[2];
+            temp = copyByte(this.data, pos, 2);
+            pos += 2;
+            return BitConverter.ToInt16(temp, 0);
         }
 
         public string readString()

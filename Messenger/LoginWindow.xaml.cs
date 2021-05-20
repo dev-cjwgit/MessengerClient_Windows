@@ -1,5 +1,6 @@
 ﻿using Messenger.Socket;
 using PacketComponent;
+using ProgramCore.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Messenger
 {
@@ -23,10 +25,12 @@ namespace Messenger
     /// </summary>
     public partial class LoginWindow : Window
     {
+
         public LoginWindow()
         {
             InitializeComponent();
             new ServerService("192.168.48.130", 5000);
+            ServerService.sendLoginFrm = RecvData;
         }
 
         private void WindowsTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -42,15 +46,19 @@ namespace Messenger
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             SendPacket s = new SendPacket();
-            s.writeInt(255);
+            if (emailTextBox.Text.ToString().Contains("@"))
+            {
+                s.writeShort(256);
+            }
+            else
+            {
+                s.writeShort(255);
+            }
             s.writeString(emailTextBox.Text.ToString());
             s.writeString(PWTextBox.Password.ToString());
-
             ServerService.send(s.getPacket());
-            MainWindow main = new MainWindow();
-            this.Hide();
-            main.Show();
-           
+
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -66,6 +74,47 @@ namespace Messenger
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
             anim.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, anim);
+        }
+
+        public void RecvData(int opcode, ReadPacket r)
+        {
+            int status = r.readShort();
+            switch (status)
+            {
+                case -1:
+                    {
+                        MessageBox.Show("서버 연결이 실패하였습니다.");
+                        break;
+                    }
+                case 1:
+                    {
+                        MessageBox.Show("존재하지 않는 아이디입니다.");
+                        break;
+                    }
+                case 2:
+                    {
+                        MessageBox.Show("비밀번호가 틀렸습니다.");
+                        break;
+                    }
+
+                case 5:
+                    {
+                        int uid = r.readInt();
+                        string nickname = r.readString();
+                        string introduce = r.readString();
+
+                        FriendWindowEntity.GetInstance().Uid = uid;
+                        FriendWindowEntity.GetInstance().NickName = nickname;
+                        FriendWindowEntity.GetInstance().Introduce = introduce;
+                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                        {
+                            MainWindow main = new MainWindow();
+                            this.Hide();
+                            main.Show();
+                        }));
+                        break;
+                    }
+            }
         }
     }
 }

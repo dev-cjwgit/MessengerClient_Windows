@@ -10,9 +10,13 @@ using System.Threading.Tasks;
 namespace Messenger.Socket
 {
     public delegate void SendData(byte[] data);
+    public delegate void SendForm(int opcode, ReadPacket r);
     public class ServerService
     {
         public static SendData send;
+        public static SendForm sendLoginFrm;
+        public static SendForm sendMainFrm;
+
         private readonly ServerConnect socket;
         public ServerService(string ip, int port)
         {
@@ -32,19 +36,17 @@ namespace Messenger.Socket
         private void recvData(object obj)
         {
             ReadPacket r = obj as ReadPacket;
-            int opcode = r.readInt();
+            int opcode = r.readShort();
             switch (opcode)
             {
-                case 255:
+                case 255:  // id login
+                case 256:  // email login
                     {
-                        Console.WriteLine("Login");
+                        sendLoginFrm(opcode, r);
                         break;
                     }
+
             }
-        }
-        public static void Send(byte[] data)
-        {
-            send(data);
         }
     }
 }

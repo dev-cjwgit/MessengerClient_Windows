@@ -18,6 +18,7 @@ namespace Messenger.Binding.ObjectViewModel
         {
             list[idx].List.Add(new ProfileForm()
             {
+                Uid = people.Uid,
                 NickName = people.NickName,
                 Introduce = people.Introduce
             });
@@ -29,6 +30,25 @@ namespace Messenger.Binding.ObjectViewModel
                 Title = title,
                 List = new ObservableCollection<ProfileForm>()
             });
+        }
+
+        public void Delete(int idx)
+        {
+            int y_idx = 0;
+            foreach(var items in list)
+            {
+                int x_idx = 0;
+                foreach(var item in items.List)
+                {
+                    if(item.Uid == idx)
+                    {
+                        list[y_idx].List.RemoveAt(x_idx);
+                        return;
+                    }
+                    x_idx++;
+                }
+                y_idx++;
+            }
         }
 
         public void Fetch()

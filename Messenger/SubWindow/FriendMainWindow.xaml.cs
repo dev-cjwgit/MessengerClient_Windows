@@ -25,6 +25,9 @@ namespace Messenger.SubWindow
     /// </summary>
     public partial class FriendMainWindow : UserControl
     {
+        private TreeModel model = new TreeModel();
+
+        private ProfileForm SelectedProfile = new ProfileForm();
         private void InitBinding()
         {
             ProfileNickNameText.DataContext = MyProfileViewModel.GetInstance();
@@ -40,7 +43,6 @@ namespace Messenger.SubWindow
             InitializeComponent();
             InitBinding();
 
-            TreeModel model = new TreeModel();
             model.InsertGroup("즐겨찾기");
             model.InsertGroup("생일");
             model.InsertGroup("친구");
@@ -50,6 +52,7 @@ namespace Messenger.SubWindow
             {
                 model.InsertFriend(rand.Next(0, 3), new ProfileForm()
                 {
+                    Uid = i,
                     NickName = "유미" + rand.Next(1, 100),
                     Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
                 });
@@ -76,19 +79,39 @@ namespace Messenger.SubWindow
 
         private void FriendTreeView_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (((TreeViewItem)sender).DataContext is FriendTreeViewForm) {
+            if (((TreeViewItem)sender).DataContext is FriendTreeViewForm)
+            {
+                SelectedProfile = null;
                 return;
             }
-            ((TreeViewItem)sender).IsSelected = true;
 
+            ((TreeViewItem)sender).IsSelected = true;
             e.Handled = true;
+            SelectedProfile = FriendTreeView.SelectedItem as ProfileForm;
+        }
+
+
+        private void TreeView_FriendChatting(object sender, RoutedEventArgs e)
+        {
+            if (SelectedProfile != null)
+            {
+                MessageBox.Show(SelectedProfile.NickName + "님과 대화를 시작합니다.");
+            }
+        }
+
+        private void TreeView_FriendDelete(object sender, RoutedEventArgs e)
+        {
+            if (SelectedProfile != null)
+            {
+                model.Delete(SelectedProfile.Uid);
+            }
         }
     }
     public class LineConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((double)value) - 35;
+            return ((double)value) - 33;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

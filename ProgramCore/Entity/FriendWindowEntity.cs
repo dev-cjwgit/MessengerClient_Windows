@@ -8,13 +8,17 @@ namespace ProgramCore.Entity
 {
     public class FriendWindowEntity
     {
+        public int Uid
+        {
+            get; set;
+        }
         public string NickName
         {
-            get;set;
+            get; set;
         }
         public string Introduce
         {
-            get;set;
+            get; set;
         }
 
         private static FriendWindowEntity instance;

@@ -8,9 +8,14 @@ namespace ProgramCore.ObjectForm
 {
     public class ProfileForm
     {
+        public int Uid
+        {
+            get; set;
+        }
+
         public string NickName
         {
-            get;set;
+            get; set;
         }
 
         public string Introduce

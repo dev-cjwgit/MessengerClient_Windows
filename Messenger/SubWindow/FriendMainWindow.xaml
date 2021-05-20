@@ -117,7 +117,13 @@
         
         <Grid Grid.Row="3">
             <TreeView Name="FriendTreeView">
-
+                <TreeView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="대화하기" Click="TreeView_FriendChatting"/>
+                        <MenuItem Header="삭제하기" Click="TreeView_FriendDelete"/>
+                    </ContextMenu>
+                </TreeView.ContextMenu>
+                
                 <TreeView.ItemContainerStyle>
                     <Style TargetType="TreeViewItem">
                         <Style.Triggers>
@@ -145,7 +151,7 @@
                                         Padding="{TemplateBinding Control.Padding}"
                                         BorderBrush="{TemplateBinding Border.BorderBrush}"
                                         Background="{TemplateBinding Panel.Background}"
-                                        Name="Bd" Margin="10,0,0,0"
+                                        Name="Bd" Margin="20,0,0,0"
                                         SnapsToDevicePixels="True"
                                         Grid.Column="0">
                                             <ContentPresenter Content="{TemplateBinding HeaderedContentControl.Header}"
@@ -286,10 +292,11 @@
                         <EventSetter Event="MouseRightButtonDown" Handler="FriendTreeView_MouseRightButtonDown"/>
                     </Style>
                 </TreeView.ItemContainerStyle>
-        
+
                 <TreeView.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#ebebeb" />
 
+       
                     <HierarchicalDataTemplate DataType="{x:Type form:FriendTreeViewForm}" ItemsSource="{Binding List}">
                         <Grid>
                             <TextBlock Text="{Binding Title}" Margin="5" Foreground="#9c9c9c"/>
@@ -297,6 +304,7 @@
                     </HierarchicalDataTemplate>
                     
                     <DataTemplate DataType="{x:Type form:ProfileForm}">
+
                         <Grid>
                             <!-- 프로필 UI -->
                             <Grid.ColumnDefinitions>
@@ -326,6 +334,8 @@
                             </Grid>
                         </Grid>
                     </DataTemplate>
+
+                    
                 </TreeView.Resources>
             </TreeView>
 

@@ -127,6 +127,9 @@
                 <TreeView.ItemContainerStyle>
                     <Style TargetType="TreeViewItem">
                         <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#F0F0F0"/>
+                            </Trigger>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
@@ -294,7 +297,7 @@
                 </TreeView.ItemContainerStyle>
 
                 <TreeView.Resources>
-                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#ebebeb" />
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#e3e3e3" />
 
        
                     <HierarchicalDataTemplate DataType="{x:Type form:FriendTreeViewForm}" ItemsSource="{Binding List}">

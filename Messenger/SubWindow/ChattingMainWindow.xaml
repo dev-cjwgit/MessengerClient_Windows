@@ -12,6 +12,28 @@
     <UserControl.Resources>
         <local:TitleTextConverter x:Key="TitleTextConverter"/>
         <local:ValueConverter x:Key="ValueConverter"/>
+        
+        <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="border" SnapsToDevicePixels="True" Padding="2">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F0F0F0"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#e3e3e3"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="NormalButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -68,13 +90,15 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListBox x:Name="ChattingList">
+            <ListBox x:Name="ChattingList" ItemContainerStyle="{DynamicResource ListBoxItemStyle}">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="채팅방 열기" Click="ChattingList_EnterChatting"/>
                         <MenuItem Header="나가기" Click="ChattingList_ExitChatting"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
+
+                
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type local:ChattingMainWindow}">
                         <Border x:Name="Border" Padding="8"  BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MaterialDesignDivider}">
@@ -104,10 +128,8 @@
                                         </StackPanel>
                                     </Grid>
                                     <TextBlock HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Body}" Foreground="#919191" TextTrimming="WordEllipsis"/>
-
-
                                 </Grid>
-                                  <TextBlock HorizontalAlignment="Right" Grid.Column="2" Text="{Binding Date}" Foreground="#919191" TextTrimming="WordEllipsis" FontSize="8"/>
+                                  <TextBlock HorizontalAlignment="Right" Grid.Column="2" Text="{Binding Date}" Foreground="#919191" TextTrimming="WordEllipsis" FontSize="10"/>
                             </Grid>
                         </Border>
                         <DataTemplate.Triggers>

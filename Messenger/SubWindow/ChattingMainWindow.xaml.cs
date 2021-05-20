@@ -24,5 +24,15 @@ namespace Messenger.SubWindow
         {
             InitializeComponent();
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddChattingButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

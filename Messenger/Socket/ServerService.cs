@@ -15,7 +15,7 @@ namespace Messenger.Socket
     {
         public static SendData send;
         public static SendForm sendLoginFrm;
-        public static SendForm sendMainFrm;
+        public static SendForm sendFriendMainFrm;
 
         private readonly ServerConnect socket;
         public ServerService(string ip, int port)
@@ -43,6 +43,11 @@ namespace Messenger.Socket
                 case 256:  // email login
                     {
                         sendLoginFrm(opcode, r);
+                        break;
+                    }
+                case 300:
+                    {
+                        sendFriendMainFrm(300, r);
                         break;
                     }
 

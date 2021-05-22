@@ -1,4 +1,6 @@
 ﻿using Messenger.Binding.ObjectViewModel;
+using Messenger.Socket;
+using PacketComponent;
 using ProgramCore.Entity;
 using ProgramCore.ObjectForm;
 using System;
@@ -28,8 +30,44 @@ namespace Messenger.SubWindow
         private TreeModel model = new TreeModel();
 
         private ProfileForm SelectedProfile = new ProfileForm();
+
+        public void RecvData(int opcode, ReadPacket r)
+        {
+            switch (opcode)
+            {
+                case 300:
+                    {
+                        int status = r.readShort();
+                        if(status > 0)
+                        {
+                            for (int i = 0; i < status; i++)
+                            {
+                                int uid = r.readInt();
+                                string name = r.readString();
+                                string introduce = r.readString();
+                                int nickexist = r.readShort();
+                                if (nickexist > 0)
+                                {
+                                    string temp = r.readString();
+                                    if (temp != "")
+                                        name = temp;
+                                }
+                                model.InsertFriend(0, new ProfileForm()
+                                {
+                                    Uid = uid,
+                                    NickName = name,
+                                    Introduce = introduce,
+                                });
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+
         private void InitBinding()
         {
+            ServerService.sendFriendMainFrm = RecvData;
             ProfileNickNameText.DataContext = MyProfileViewModel.GetInstance();
             ProfileIntroduceText.DataContext = MyProfileViewModel.GetInstance();
             FriendTreeView.ItemsSource = FriendTreeViewModel.GetInstance();
@@ -43,20 +81,25 @@ namespace Messenger.SubWindow
             InitializeComponent();
             InitBinding();
 
-            model.InsertGroup("즐겨찾기");
-            model.InsertGroup("생일");
+            SendPacket s = new SendPacket();
+            s.writeShort(300);
+            s.writeInt(FriendWindowEntity.GetInstance().Uid);
+            ServerService.send(s.getPacket());
+
             model.InsertGroup("친구");
 
-            Random rand = new Random();
-            for (int i = 0; i < 10; i++)
-            {
-                model.InsertFriend(rand.Next(0, 3), new ProfileForm()
-                {
-                    Uid = i,
-                    NickName = "유미" + rand.Next(1, 100),
-                    Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
-                });
-            }
+
+
+            //Random rand = new Random();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    model.InsertFriend(0, new ProfileForm()
+            //    {
+            //        Uid = i,
+            //        NickName = "유미" + rand.Next(1, 100),
+            //        Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
+            //    });
+            //}
             model.Fetch();
         }
 

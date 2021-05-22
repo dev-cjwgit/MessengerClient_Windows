@@ -20,16 +20,9 @@ namespace Messenger
         private BrushConverter converter = new BrushConverter();
         private WindowState PrevWindowState = WindowState.Normal;
         private NotifyIcon notify;
-        public void RecvData(int opcode, ReadPacket r)
-        {
-            switch (opcode)
-            {
-
-            }
-        }
+        
         private void initProgram()
         {
-            ServerService.sendMainFrm = RecvData;
             MainWindowEntity.GetInstance().Friend = new FriendMainWindow();
             MainWindowEntity.GetInstance().Chatting = new ChattingMainWindow();
             MainWindowEntity.GetInstance().More = new MoreMainWindow();

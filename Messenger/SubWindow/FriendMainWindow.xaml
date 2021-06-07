@@ -291,6 +291,7 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="IsExpanded" Value="True"/>
 
                         <EventSetter Event="MouseRightButtonDown" Handler="FriendTreeView_MouseRightButtonDown"/>
                     </Style>

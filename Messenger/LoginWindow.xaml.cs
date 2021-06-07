@@ -72,7 +72,7 @@ namespace Messenger
             Closing -= Window_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
-            anim.Completed += (s, _) => this.Close();
+            anim.Completed += (s, _) => Environment.Exit(0);
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }
 
@@ -88,7 +88,7 @@ namespace Messenger
                     }
                 case 1:
                     {
-                        MessageBox.Show("존재하지 않는 아이디입니다.");
+                        MessageBox.Show("존재하지 않는 전화번호입니다.");
                         break;
                     }
                 case 2:

@@ -110,7 +110,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1">
                     <TextBox x:Name="emailTextBox"
-                            materialDesign:HintAssist.Hint="아이디 또는 이메일을 입력해주세요."
+                            materialDesign:HintAssist.Hint="전화번호 또는 이메일을 입력해주세요."
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White"
                              materialDesign:HintAssist.Foreground="#31326f"
                              materialDesign:TextFieldAssist.UnderlineBrush="#31326f"

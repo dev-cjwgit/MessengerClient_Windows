@@ -78,7 +78,7 @@
 
 
     </Window.Resources>
-    <Border CornerRadius="2.5" Background="#ffc93c" BorderBrush="#ffc93c" BorderThickness="1.0">
+    <Border CornerRadius="2.5" Background="#ffEB33" BorderBrush="#ffEB33" BorderThickness="1.0">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>

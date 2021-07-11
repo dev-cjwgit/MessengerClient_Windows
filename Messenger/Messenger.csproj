@@ -84,11 +84,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Binding\ObjectViewModel\ChattingListViewModel.cs" />
+    <Compile Include="Binding\ObjectViewModel\ChattingViewModel.cs" />
     <Compile Include="Binding\ObjectViewModel\FriendTreeViewModel.cs" />
     <Compile Include="Binding\ObjectViewModel\MyProfileViewModel.cs" />
-    <Compile Include="Socket\ServerService.cs" />
-    <Compile Include="SubWindow\ChattingMainWindow.xaml.cs">
+    <Compile Include="ChattingMainWindow.xaml.cs">
       <DependentUpon>ChattingMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Socket\ServerService.cs" />
+    <Compile Include="SubWindow\ChattingListMainWindow.xaml.cs">
+      <DependentUpon>ChattingListMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindow\ChattingListWindow.xaml.cs">
+      <DependentUpon>ChattingListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubWindow\FriendMainWindow.xaml.cs">
       <DependentUpon>FriendMainWindow.xaml</DependentUpon>
@@ -96,6 +103,10 @@
     <Compile Include="SubWindow\MoreMainWindow.xaml.cs">
       <DependentUpon>MoreMainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChattingMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,7 +125,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubWindow\ChattingMainWindow.xaml">
+    <Page Include="SubWindow\ChattingListMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindow\ChattingListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -25,12 +25,13 @@ namespace Messenger
     /// </summary>
     public partial class LoginWindow : Window
     {
-
+        public static ServerService serv;
         public LoginWindow()
         {
             InitializeComponent();
-            new ServerService("220.88.163.147", 5000);
+            serv = new ServerService("172.30.1.43", 8080);
             ServerService.sendLoginFrm = RecvData;
+
         }
 
         private void WindowsTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -45,20 +46,21 @@ namespace Messenger
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SendPacket s = new SendPacket();
-            if (emailTextBox.Text.ToString().Contains("@"))
-            {
-                s.writeShort(256);
-            }
-            else
-            {
-                s.writeShort(255);
-            }
-            s.writeString(emailTextBox.Text.ToString());
-            s.writeString(PWTextBox.Password.ToString());
-            ServerService.send(s.getPacket());
+            //SendPacket s = new SendPacket();
+            //if (emailTextBox.Text.ToString().Contains("@"))
+            //{
+            //    s.writeShort(256);
+            //}
+            //else
+            //{
+            //    s.writeShort(255);
+            //}
+            //s.writeString(emailTextBox.Text.ToString());
+            //s.writeString(PWTextBox.Password.ToString());
+            //ServerService.send(s.getPacket());
 
-
+            ChattingMainWindow chat = new ChattingMainWindow(emailTextBox.Text.ToString());
+            chat.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -72,7 +74,11 @@ namespace Messenger
             Closing -= Window_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
-            anim.Completed += (s, _) => Environment.Exit(0);
+            anim.Completed += (s, _) =>
+            {
+                LoginWindow.serv.Close();
+                Environment.Exit(0);
+            };
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }
 

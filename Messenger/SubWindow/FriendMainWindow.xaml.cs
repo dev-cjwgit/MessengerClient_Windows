@@ -4,21 +4,11 @@ using PacketComponent;
 using ProgramCore.Entity;
 using ProgramCore.ObjectForm;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Messenger.SubWindow
 {
@@ -75,7 +65,6 @@ namespace Messenger.SubWindow
             MyProfileViewModel.GetInstance().NickName = FriendWindowEntity.GetInstance().NickName;
             MyProfileViewModel.GetInstance().Introduce = FriendWindowEntity.GetInstance().Introduce;
         }
-
         public FriendMainWindow()
         {
             InitializeComponent();
@@ -87,8 +76,6 @@ namespace Messenger.SubWindow
             ServerService.send(s.getPacket());
 
             model.InsertGroup("친구");
-
-
 
             //Random rand = new Random();
             //for (int i = 0; i < 10; i++)

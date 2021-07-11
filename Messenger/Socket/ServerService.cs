@@ -23,7 +23,10 @@ namespace Messenger.Socket
             socket = new ServerConnect(ip, port, RecvPacket);
             send += socket.send;
         }
-
+        public void Close()
+        {
+            socket.Close();
+        }
         public void RecvPacket(byte[] data)
         {
             ReadPacket r = new ReadPacket(data);
@@ -36,6 +39,7 @@ namespace Messenger.Socket
         private void recvData(object obj)
         {
             ReadPacket r = obj as ReadPacket;
+            
             int opcode = r.readShort();
             switch (opcode)
             {

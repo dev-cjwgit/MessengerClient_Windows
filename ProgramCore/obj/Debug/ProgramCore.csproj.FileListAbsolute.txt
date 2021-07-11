@@ -3,4 +3,3 @@ C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\ProgramCore\bin\Debug\Pro
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\ProgramCore\obj\Debug\ProgramCore.csproj.CoreCompileInputs.cache
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\ProgramCore\obj\Debug\ProgramCore.dll
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\ProgramCore\obj\Debug\ProgramCore.pdb
-C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\ProgramCore\obj\Debug\ProgramCore.csprojAssemblyReference.cache

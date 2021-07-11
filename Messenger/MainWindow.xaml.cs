@@ -20,11 +20,11 @@ namespace Messenger
         private BrushConverter converter = new BrushConverter();
         private WindowState PrevWindowState = WindowState.Normal;
         private NotifyIcon notify;
-        
+
         private void initProgram()
         {
             MainWindowEntity.GetInstance().Friend = new FriendMainWindow();
-            MainWindowEntity.GetInstance().Chatting = new ChattingMainWindow();
+            MainWindowEntity.GetInstance().Chatting = new ChattingListMainWindow();
             MainWindowEntity.GetInstance().More = new MoreMainWindow();
 
 
@@ -47,6 +47,7 @@ namespace Messenger
         #region Window Events
         private void WindowsCloseButton_Click(object sender, RoutedEventArgs e)
         {
+
             Close();
         }
 
@@ -95,7 +96,11 @@ namespace Messenger
             Closing -= Window_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.33));
-            anim.Completed += (s, _) => Environment.Exit(0);
+            anim.Completed += (s, _) =>
+            {
+                LoginWindow.serv.Close();
+                Environment.Exit(0);
+            };
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }
 

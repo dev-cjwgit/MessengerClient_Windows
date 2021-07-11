@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\cjwgi\Desktop\MessengerProject\Client\Windows\Messenger\App.xaml
-51051895972
+7-1396083914
 
-15330776930
+18576494536
 1291788762736
-LoginWindow.xaml;MainWindow.xaml;SubWindow\ChattingMainWindow.xaml;SubWindow\FriendMainWindow.xaml;SubWindow\MoreMainWindow.xaml;
+ChattingMainWindow.xaml;LoginWindow.xaml;MainWindow.xaml;SubWindow\ChattingListMainWindow.xaml;SubWindow\ChattingListWindow.xaml;SubWindow\FriendMainWindow.xaml;SubWindow\MoreMainWindow.xaml;
 
 False
 

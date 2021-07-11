@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:Messenger"
         WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowInTaskbar="False"
         ResizeMode="CanResizeWithGrip"
@@ -21,7 +20,7 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Background="#ededed">
+            <Grid Grid.Column="0" Background="#ECECED">
                 
                 <ContentControl>
                     <Rectangle Name="titlebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
@@ -95,8 +94,6 @@
                 <Grid Grid.Row="1">
                     <ContentControl x:Name="ContentPage" Content="{Binding Page}"/>
                 </Grid>
-
-                
             </Grid>
         </Grid>
     </Border>

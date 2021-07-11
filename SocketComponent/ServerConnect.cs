@@ -11,6 +11,7 @@ namespace SocketComponent
         public SocketData recv;
         private readonly string ip; private readonly int port;
         private Socket client;
+        private bool status = true;
         
         public ServerConnect(string ip, int port, SocketData recv)
         {
@@ -31,10 +32,20 @@ namespace SocketComponent
             new Thread(new ThreadStart(recvData)).Start();
             new Thread(new ThreadStart(serverStatus)).Start();
         }
-
+        public void Close()
+        {
+            status = false;
+            client.Close();
+        }
         private bool IsSocketConnected(Socket s)
         {
-            return !((s.Poll(1000, SelectMode.SelectRead) && (s.Available == 0)) || !s.Connected);
+            try
+            {
+                return !((s.Poll(1000, SelectMode.SelectRead) && (s.Available == 0)) || !s.Connected);
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         private void serverStatus()
@@ -43,6 +54,7 @@ namespace SocketComponent
             {
                 if (IsSocketConnected(client) == false)
                 {
+                    Close();
                     Environment.Exit(0);
                 }
             }
@@ -52,7 +64,7 @@ namespace SocketComponent
         {
             try
             {
-                while (true)
+                while (status)
                 {
                     byte[] buff = new byte[8192];
                     int n = client.Receive(buff);

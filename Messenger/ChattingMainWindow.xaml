@@ -1,0 +1,221 @@
+﻿<Window x:Class="Messenger.ChattingMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Messenger"
+        xmlns:sub="clr-namespace:Messenger.SubWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" ShowInTaskbar="False"
+        ResizeMode="CanResizeWithGrip"
+        mc:Ignorable="d"
+        MinHeight="500" MinWidth="350"
+        Title="ChattingMainWindow" Height="600" Width="350">
+    <Window.Resources>
+        <Style x:Key="TextButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFEC42"/>
+            <Setter Property="BorderBrush" Value="#EADC63"/>
+        </Style>
+
+        <Style x:Key="SliderRepeatButtonStyleKey" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="IsTabStop" Value="false" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Rectangle Fill="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HorizontalSliderThumbStyleKey" TargetType="{x:Type Thumb}">
+            <Setter Property="Width" Value="14" />
+            <Setter Property="Height" Value="14" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Ellipse StrokeThickness="0.8" Stroke="#BDBDBD" Fill="#FFFFFF" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BasedSliderStyle" TargetType="{x:Type Slider}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#BDBDBD" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition MinHeight="{TemplateBinding MinHeight}" Height="Auto" />
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TickBar Grid.Row="0" Height="4" Fill="{TemplateBinding Foreground}" Placement="Top" Visibility="Collapsed" />
+                                <TickBar Grid.Row="2" Height="4" Fill="{TemplateBinding Foreground}" Placement="Bottom" Visibility="Collapsed" />
+                                <Border Grid.Row="1" Margin="5,0" Height="5.0" CornerRadius="1" VerticalAlignment="center">
+                                    <Grid>
+                                        <Border CornerRadius="0.5" Background="#fff7f4f4" Opacity="0.215" />
+                                        <Border Margin="0 0 0.3 0.3" Background="#BDBDBD" Opacity="0.8" BorderThickness="1.5"/>
+                                    </Grid>
+                                </Border>
+                                <Track Name="PART_Track" Grid.Row="1">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource SliderRepeatButtonStyleKey}" Command="{x:Static Slider.DecreaseLarge}" />
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource SliderRepeatButtonStyleKey}" Command="{x:Static Slider.IncreaseLarge}" />
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource HorizontalSliderThumbStyleKey}" />
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="2.5" Background="White" BorderBrush="Gray" BorderThickness="0" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="Gray" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#A9BDCE">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
+                        <Rectangle Name="sidebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                    </ContentControl>
+                    <Viewbox>
+                        <materialDesign:PackIcon Kind="Account" />
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
+                            <Rectangle Name="sidebar1" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                        </ContentControl>
+                        <!-- Chatting Title Bar -->
+                        <TextBlock x:Name="TitleTextBox" TextTrimming="WordEllipsis" Text="{Binding Title}"
+                                   VerticalAlignment="Center" MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"
+                                   FontSize="13"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <!-- Chatting Menu Button Bar -->
+                        <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
+                            <Rectangle Name="sidebar2" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                        </ContentControl>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
+                                <Rectangle Name="sidebar3" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                            </ContentControl>
+                            <!-- System Menu Button Bar -->
+                            <Button x:Name="WindowsMinimizeButton" HorizontalAlignment="Right"
+                                    Style="{StaticResource BasedChattingMainButtonStyle}"
+                                    Click="WindowsMinimizeButton_Click"
+                                    Width="20" Height="20" Margin="0,0,45,0"
+                                    ToolTip="최소화">
+                                <materialDesign:PackIcon Kind="WindowMinimize"/>
+                            </Button>
+
+                            <Button x:Name="WindowsMaximizeButton" HorizontalAlignment="Right"
+                                    Style="{StaticResource BasedChattingMainButtonStyle}"
+                                    Click="WindowsMaximizeButton_Click"
+                                    Width="20" Height="20" Margin="0,0,25,0"
+                                    ToolTip="최대화">
+                                <materialDesign:PackIcon Kind="WindowMaximize"/>
+                            </Button>
+
+                            <Button x:Name="WindowsCloseButton"
+                                    Style="{StaticResource BasedChattingMainButtonStyle}"
+                                    Click="WindowsCloseButton_Click" HorizontalAlignment="Right"
+                                    Width="20" Height="20" Margin="0,0,5,0"
+                                    ToolTip="프로그램 종료">
+                                <materialDesign:PackIcon Kind="Close"/>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <!-- Chatting Menu Option Bar -->
+                            <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
+                                <Rectangle Name="sidebar4" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
+                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
+                            </ContentControl>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+            <Grid Grid.Row="1" Background="#B2C7D9">
+                <sub:ChattingListWindow x:Name="ChattingListSubWindow"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBox Height="60"
+                    VerticalAlignment="Top" Margin="10,5,10,5"
+                    AcceptsReturn="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    TextWrapping="Wrap"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Style="{StaticResource TextButtonStyle}"
+                        Height="30" Width="50" Margin="0,-15,0,0"
+                        ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                        전송
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Slider x:Name="Slider1" Style="{StaticResource BasedSliderStyle}" ValueChanged="Slider_ValueChanged"
+                    TickFrequency="5" Orientation="Horizontal" Foreground="#BDBDBD"
+                    VerticalAlignment="Center" HorizontalAlignment="Right" Width="60" Margin="0,0,10,0"
+                Minimum="20" Maximum="100" Value="100" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -89,7 +89,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListBox x:Name="ChattingList" ItemContainerStyle="{DynamicResource ListBoxItemStyle}">
+            <ListBox x:Name="ChattingList" ItemContainerStyle="{DynamicResource ListBoxItemStyle}" MouseDoubleClick="ChattingList_EnterChatting">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="채팅방 열기" Click="ChattingList_EnterChatting"/>

@@ -70,23 +70,23 @@ namespace Messenger.SubWindow
             InitializeComponent();
             InitBinding();
 
-            SendPacket s = new SendPacket();
-            s.writeShort(300);
-            s.writeInt(FriendWindowEntity.GetInstance().Uid);
-            ServerService.send(s.getPacket());
+            //SendPacket s = new SendPacket();
+            //s.writeShort(300);
+            //s.writeInt(FriendWindowEntity.GetInstance().Uid);
+            //ServerService.send(s.getPacket());
 
             model.InsertGroup("친구");
 
-            //Random rand = new Random();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    model.InsertFriend(0, new ProfileForm()
-            //    {
-            //        Uid = i,
-            //        NickName = "유미" + rand.Next(1, 100),
-            //        Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
-            //    });
-            //}
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                model.InsertFriend(0, new ProfileForm()
+                {
+                    Uid = i,
+                    NickName = "유미" + rand.Next(1, 100),
+                    Introduce = "자기소개 " + rand.Next(1, 1000) + " 번쨰"
+                });
+            }
             model.Fetch();
         }
 

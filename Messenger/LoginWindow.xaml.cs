@@ -58,9 +58,9 @@ namespace Messenger
             //s.writeString(emailTextBox.Text.ToString());
             //s.writeString(PWTextBox.Password.ToString());
             //ServerService.send(s.getPacket());
-
-            ChattingMainWindow chat = new ChattingMainWindow(emailTextBox.Text.ToString());
-            chat.Show();
+            MainWindow main = new MainWindow();
+            this.Hide();
+            main.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

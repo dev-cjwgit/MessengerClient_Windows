@@ -78,7 +78,10 @@
 
 
     </Window.Resources>
-    <Border CornerRadius="2.5" Background="#ffEB33" BorderBrush="#ffEB33" BorderThickness="1.0">
+    <Border CornerRadius="2.5" Background="#ffEB33" BorderBrush="#ffEB33" BorderThickness="1.0" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="Gray" />
+        </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>

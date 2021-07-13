@@ -29,7 +29,8 @@ namespace Messenger
         public LoginWindow()
         {
             InitializeComponent();
-            serv = new ServerService("172.30.1.43", 8080);
+            //serv = new ServerService("172.30.1.43", 8080);
+            serv = new ServerService("125.209.222.141", 80);
             ServerService.sendLoginFrm = RecvData;
 
         }

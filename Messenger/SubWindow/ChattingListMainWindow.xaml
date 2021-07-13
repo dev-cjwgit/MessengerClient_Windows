@@ -106,6 +106,7 @@
                                     <ColumnDefinition Width="40"/>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="55" />
+                                    <ColumnDefinition Width="3" />
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.Column="0">

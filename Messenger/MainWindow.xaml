@@ -14,7 +14,10 @@
         Topmost="True"
         Title="메신져 메인" Height="600" Width="400">
 
-    <Border CornerRadius="2.5" Background="White" BorderBrush="White" BorderThickness="0">
+    <Border CornerRadius="2.5" Background="White" BorderBrush="White" BorderThickness="0" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="Gray" />
+        </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>

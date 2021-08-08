@@ -112,8 +112,8 @@ namespace Messenger.SubWindow
             });
             vm.List.Add(new ChatListForm()
             {
-                NickName = "자1지훈",
-                Body = "로리지훈 로리지훈 섹스 섹스 로리지훈 로리지훈 섹스 섹스",
+                NickName = "지훈",
+                Body = "반갑습니다!!",
                 NowTime = "오후 11:05"
             });
             vmlist.Add(vm);

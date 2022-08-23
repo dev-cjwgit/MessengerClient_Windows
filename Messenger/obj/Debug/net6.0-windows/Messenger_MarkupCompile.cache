@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\multicampus\source\repos\Messenger\Messenger\obj\Debug\net6.0-windows\
+C:\Users\multicampus\source\repos\MessengerClient_Windows\Messenger\obj\Debug\net6.0-windows\
 Messenger
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\multicampus\source\repos\Messenger\Messenger\App.xaml
+C:\Users\multicampus\source\repos\MessengerClient_Windows\Messenger\App.xaml
 2-216653475
 
 4-1844475548
-1971215579123
+197265301416
 LoginWindow.xaml;MainWindow.xaml;
 
 False

@@ -1,4 +1,5 @@
 ﻿using Messenger.ViewModel;
+using Messenger.ViewModel.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,18 @@ namespace Messenger
         {
             var anim = new DoubleAnimation(0, 1, (Duration)TimeSpan.FromSeconds(0.5));
             this.BeginAnimation(UIElement.OpacityProperty, anim);
+            if(DataContext is IWindowControl vm)
+            {
+                vm.Open = () =>
+                {
+                    this.Show();
+                };
+
+                vm.Close = () =>
+                {
+                    this.Close();
+                };
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -50,7 +63,7 @@ namespace Messenger
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
             anim.Completed += (s, _) =>
             {
-                Environment.Exit(0);
+                //Environment.Exit(0);
             };
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }

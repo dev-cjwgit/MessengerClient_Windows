@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YIyxFzH8Nsy+lDO+UIkjmuEJQCBJPe+dUSliC2XPQx0Eiwpmtrc5CDwKXQfdCZJod2U1CElSeXbUIiEIJBxEUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\multicampus\\source\\repos\\MessengerClient_Windows\\Messenger\\Messenger.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\multicampus\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\multicampus\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

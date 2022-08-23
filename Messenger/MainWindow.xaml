@@ -3,102 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True" ShowInTaskbar="False"
-        ResizeMode="CanResizeWithGrip"
-        Loaded="Window_Loaded" Closing="Window_Closing"
-        Activated="Window_Activated"
+        xmlns:local="clr-namespace:Messenger"
         mc:Ignorable="d"
-        MinWidth="400" MinHeight="500"
-        Topmost="True"
-        Title="메신져 메인" Height="600" Width="400">
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
 
-    <Border CornerRadius="2.5" Background="White" BorderBrush="White" BorderThickness="0" Margin="5">
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="Gray" />
-        </Border.Effect>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Background="#ECECED">
-                
-                <ContentControl>
-                    <Rectangle Name="titlebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
-                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
-                </ContentControl>
-                <Button x:Name="FriendButton" VerticalAlignment="Top" Height="35" Width="35" Margin="10,30,10,10"
-                        Click="FriendButton_Click"
-                Style="{StaticResource BasedMainButtonStyle}" ToolTip="친구">
-                    <Viewbox>
-                        <materialDesign:PackIcon Kind="Account" />
-                    </Viewbox>
-                </Button>
-                <Button x:Name="ChattingButton" VerticalAlignment="Top" Height="30" Width="30" Margin="10,90,10,10"
-                        Click="ChattingButton_Click"
-                Style="{StaticResource BasedMainButtonStyle}" ToolTip="채팅">
-                    <Viewbox>
-                        <materialDesign:PackIcon Kind="Chat" />
-                    </Viewbox>
-                </Button>
-                <Button x:Name="MoreButton" VerticalAlignment="Top" Height="35" Width="35" Margin="10,150,10,10"
-                        Click="MoreButton_Click"
-                Style="{StaticResource BasedMainButtonStyle}" ToolTip="더보기">
-                    <Viewbox>
-                        <materialDesign:PackIcon Kind="DotsHorizontal" />
-                    </Viewbox>
-                </Button>
-
-                <Button x:Name="SetiingButton" VerticalAlignment="Bottom" Height="30" Width="30" Margin="10,10,10,30"
-                Style="{StaticResource BasedMainButtonStyle}" ToolTip="설정">
-                    <Viewbox>
-                        <materialDesign:PackIcon Kind="Cog" />
-                    </Viewbox>
-                </Button>
-            </Grid>
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <ContentControl MouseDoubleClick="WindowsMaximizeButton_Click">
-                        <Rectangle Name="sidebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
-                                           MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
-                    </ContentControl>
-                    
-                    <Button x:Name="WindowsMinimizeButton" HorizontalAlignment="Right"
-                                    Style="{StaticResource BasedMainButtonStyle}"
-                                    Click="WindowsMinimizeButton_Click"
-                                    Width="20" Height="20" Margin="0,0,45,0"
-                                    ToolTip="최소화">
-                        <materialDesign:PackIcon Kind="WindowMinimize"/>
-                    </Button>
-                    
-                    <Button x:Name="WindowsMaximizeButton" HorizontalAlignment="Right"
-                                    Style="{StaticResource BasedMainButtonStyle}"
-                                    Click="WindowsMaximizeButton_Click"
-                                    Width="20" Height="20" Margin="0,0,25,0"
-                                    ToolTip="최대화">
-                        <materialDesign:PackIcon Kind="WindowMaximize"/>
-                    </Button>
-                    
-                    <Button x:Name="WindowsCloseButton"
-                                    Style="{StaticResource BasedMainButtonStyle}"
-                                    Click="WindowsCloseButton_Click" HorizontalAlignment="Right"
-                                    Width="20" Height="20" Margin="0,0,5,0"
-                                    ToolTip="프로그램 종료">
-                        <materialDesign:PackIcon Kind="Close"/>
-                    </Button>
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <ContentControl x:Name="ContentPage" Content="{Binding Page}"/>
-                </Grid>
-            </Grid>
-        </Grid>
-    </Border>
-
+    </Grid>
 </Window>

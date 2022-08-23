@@ -1,20 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30621.155
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger", "Messenger\Messenger.csproj", "{C54E7047-7124-4990-91C4-C996527C7D68}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5C106926-86DC-4E61-A555-5F2091B9B034} = {5C106926-86DC-4E61-A555-5F2091B9B034}
-		{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE} = {A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}
-		{6B1E2BB1-4180-4740-BC9F-55BF6519C38B} = {6B1E2BB1-4180-4740-BC9F-55BF6519C38B}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger", "Messenger\Messenger.csproj", "{5C826591-4751-487F-86E9-EE7972C9DA39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramCore", "ProgramCore\ProgramCore.csproj", "{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacketComponent", "PacketComponent\PacketComponent.csproj", "{5C106926-86DC-4E61-A555-5F2091B9B034}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketComponent", "SocketComponent\SocketComponent.csproj", "{6B1E2BB1-4180-4740-BC9F-55BF6519C38B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger.ViewModel", "Messenger.ViewModel\Messenger.ViewModel.csproj", "{20A58BD5-262A-44E5-8AC3-BBB6764C83EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,27 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C54E7047-7124-4990-91C4-C996527C7D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C54E7047-7124-4990-91C4-C996527C7D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C54E7047-7124-4990-91C4-C996527C7D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C54E7047-7124-4990-91C4-C996527C7D68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0C68869-2794-4C6D-BC54-CCFF4D37C9BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C106926-86DC-4E61-A555-5F2091B9B034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C106926-86DC-4E61-A555-5F2091B9B034}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C106926-86DC-4E61-A555-5F2091B9B034}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C106926-86DC-4E61-A555-5F2091B9B034}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B1E2BB1-4180-4740-BC9F-55BF6519C38B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B1E2BB1-4180-4740-BC9F-55BF6519C38B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B1E2BB1-4180-4740-BC9F-55BF6519C38B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B1E2BB1-4180-4740-BC9F-55BF6519C38B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C826591-4751-487F-86E9-EE7972C9DA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C826591-4751-487F-86E9-EE7972C9DA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C826591-4751-487F-86E9-EE7972C9DA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C826591-4751-487F-86E9-EE7972C9DA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A58BD5-262A-44E5-8AC3-BBB6764C83EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A58BD5-262A-44E5-8AC3-BBB6764C83EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A58BD5-262A-44E5-8AC3-BBB6764C83EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A58BD5-262A-44E5-8AC3-BBB6764C83EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2B7027C5-0CA0-4BA9-9330-038655557006}
+		SolutionGuid = {79B70B3E-ADF0-4C2F-8A22-B3B0BE890044}
 	EndGlobalSection
 EndGlobal

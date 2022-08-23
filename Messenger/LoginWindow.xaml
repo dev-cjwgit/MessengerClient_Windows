@@ -94,16 +94,16 @@
                     <Rectangle Name="titlebar" Fill="Transparent" Width="auto" Height="auto"  ClipToBounds="True"
                                            MouseLeftButtonDown="WindowsTitleBar_MouseLeftButtonDown"/>
                 </ContentControl>
-                
+
                 <Button x:Name="WindowsCloseButton" Margin="1"
                                     HorizontalAlignment="Right"
                                     Style="{StaticResource BasedLoginButtonStyle}"
                                     Click="WindowsCloseButton_Click"
                                     Width="25" Height="25"
                                     ToolTip="프로그램 종료">
-                    <materialDesign:PackIcon Kind="Close" Width="auto" Height="auto"/>
+                    <materialDesign:PackIcon Kind="Close"/>
                 </Button>
-                
+
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -112,24 +112,26 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1">
-                    <TextBox x:Name="emailTextBox"
+                    <TextBox 
+                        Text="{Binding EmailTextBox}"
                             materialDesign:HintAssist.Hint="전화번호 또는 이메일을 입력해주세요."
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White"
                              materialDesign:HintAssist.Foreground="#31326f"
                              materialDesign:TextFieldAssist.UnderlineBrush="#31326f"
                              VerticalAlignment="Center" Height="40" Margin="0,-80,0,0"/>
-                    <PasswordBox x:Name="PWTextBox" 
+                    <PasswordBox x:Name="PasswordTextBox" 
                                  materialDesign:HintAssist.Hint="비밀번호를 입력해주세요."  Background="White"
                                  materialDesign:HintAssist.Foreground="#31326f" 
                                  materialDesign:TextFieldAssist.UnderlineBrush="#31326f"  
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                                 VerticalAlignment="Center" Height="40" Margin="0,0,0,0"/>
-                    <Button x:Name="LoginButton"  Style="{StaticResource LoginButtonStyle}"
-                            Click="LoginButton_Click"
+                                 VerticalAlignment="Center" Height="40" Margin="0,0,0,0" Cursor="Arrow"/>
+                    <Button Style="{StaticResource LoginButtonStyle}"
+                            Command="{Binding LoginButtonCommand}"
+                            CommandParameter="{Binding ElementName=PasswordTextBox}"
                         Margin="0,80,0,0" Height="40"
-                        ToolTip="메신저 로그인">
-                        <TextBlock x:Name="ButtonText" FontWeight="UltraBlack" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  Text="로그인"/> 
-                        
+                        ToolTip="메신저 로그인" Cursor="Hand">
+                        <TextBlock x:Name="ButtonText" FontWeight="UltraBlack" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  Text="로그인"/>
+
                     </Button>
                     <CheckBox IsChecked="False" Margin="0,150,0,0" Style="{StaticResource CheckBoxStyle}">
                         자동로그인
